@@ -6,12 +6,11 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:03:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 15:06:20 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 16:27:10 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 size_t		ft_strlen(const char *s)
 {
@@ -97,14 +96,4 @@ int			ft_printf(const char * restrict format, ...)
 	}
 	va_end(args);
 	return (result);
-}
-
-int		main(void)
-{
-	char	*str = "Do you want to install %s? %x to accept\n";
-	char	*arg1 = "Test";
-	int		arg2 = 123;
-
-	printf("%d == %d", printf(str, arg1, arg2), ft_printf(str, arg1, arg2));
-	return (0);
 }
