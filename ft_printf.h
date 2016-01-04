@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:21 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:29:00 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:43:41 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ size_t	ft_strlen(const char *s);
 void	ft_bzero(void *s, size_t n);
 int		ft_putchar(int c);
 int		ft_printi(int nb, int base);
+int		ft_printu(unsigned int nb, int base);
 int		ft_printp(void *ptr);
 int		ft_printlu(unsigned long int nb, int base);
 int		ft_printc(int c);

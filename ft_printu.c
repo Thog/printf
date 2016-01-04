@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlu.c                                       :+:      :+:    :+:   */
+/*   ft_printu.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:36:32 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:41:15 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		countdigit(unsigned long int n, int base)
+static int		countdigit(unsigned int n, int base)
 {
 	int		result;
 
@@ -25,7 +25,7 @@ static int		countdigit(unsigned long int n, int base)
 	return (result);
 }
 
-static char		*ft_ultoa_base(unsigned long int n, int base)
+static char		*ft_utoa_base(unsigned int n, int base)
 {
 	char	*result;
 	int		digit;
@@ -46,12 +46,12 @@ static char		*ft_ultoa_base(unsigned long int n, int base)
 	return (result);
 }
 
-int				ft_printlu(unsigned long int nb, int base)
+int				ft_printu(unsigned int nb, int base)
 {
 	char	*tmp;
 	int		result;
 
-	if (!(tmp = ft_ultoa_base(nb, base)))
+	if (!(tmp = ft_utoa_base(nb, base)))
 		return (0);
 	result = ft_prints(tmp);
 	free(tmp);
