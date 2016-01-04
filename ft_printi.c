@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:06:36 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:30:00 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static char		*ft_itoa_base(int n, int base)
 
 int				ft_printi(int nb, int base)
 {
-	char *tmp;
-	int result;
+	char	*tmp;
+	int		result;
 
 	if (!(tmp = ft_itoa_base(nb, base)))
 		return (0);

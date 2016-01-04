@@ -6,16 +6,15 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:21 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:17:02 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:29:00 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
 
 char	*ft_strdup(const char *s);
 char	*ft_strnew(size_t size);
@@ -27,5 +26,5 @@ int		ft_printp(void *ptr);
 int		ft_printlu(unsigned long int nb, int base);
 int		ft_printc(int c);
 int		ft_prints(char *str);
-int		ft_printf(const char * restrict format, ...);
+int		ft_printf(const char *restrict format, ...);
 #endif

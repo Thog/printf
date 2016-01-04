@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:10:26 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:30:16 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static char		*ft_ultoa_base(unsigned long int n, int base)
 
 int				ft_printlu(unsigned long int nb, int base)
 {
-	char *tmp;
-	int result;
+	char	*tmp;
+	int		result;
 
 	if (!(tmp = ft_ultoa_base(nb, base)))
 		return (0);

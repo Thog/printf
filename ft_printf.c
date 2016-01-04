@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:03:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:12:55 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:31:12 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int		ft_prints(char *str)
 int		compute_arg(char target, va_list args)
 {
 	if (target == 's' || target == 'S')
-		return ft_prints(va_arg(args, char*));
+		return (ft_prints(va_arg(args, char*)));
 	else if (target == 'c' || target == 'C')
-		return ft_printc(va_arg(args, int));
+		return (ft_printc(va_arg(args, int)));
 	else if (target == 'd' || target == 'D')
 		return (ft_printi(va_arg(args, int), 10));
 	else if (target == 'x' || target == 'X')
@@ -76,7 +76,7 @@ int		compute_arg(char target, va_list args)
 	return (write(1, &target, 1));
 }
 
-int			ft_printf(const char * restrict format, ...)
+int			ft_printf(const char *restrict format, ...)
 {
 	va_list		args;
 	int			i;
