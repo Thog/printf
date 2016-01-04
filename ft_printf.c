@@ -61,7 +61,7 @@ int			ft_prints(char *str)
 	return (0);
 }
 
-int			compute_arg(char target, va_list args)
+int			compute_arg(char prev, char target, va_list args)
 {
 	if (target == 's' || target == 'S')
 		return (ft_prints(va_arg(args, char*)));
@@ -70,20 +70,24 @@ int			compute_arg(char target, va_list args)
 	else if (target == 'd' || target == 'D' || target == 'i')
 		return (ft_printi(va_arg(args, int), 10));
 	else if (target == 'u' || target == 'U')
-		return (ft_printu(va_arg(args, unsigned int), 10));
+		return (ft_printu(va_arg(args, unsigned int), 10, 0));
 	else if (target == 'x' || target == 'X')
-		return (ft_printu(va_arg(args, unsigned int), 16));
+		return (ft_printu(va_arg(args, unsigned int), 16, target == 'X'));
 	else if (target == 'p')
 		return (ft_printp(va_arg(args, void*)));
-	return (write(1, &target, 1));
+	else if (target == '%')
+		return (write(1, &target, 1));
+	return (-write(1, &prev, 1));
 }
 
-int			ft_printf(const char *restrict format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		args;
 	int			i;
 	int			result;
+	int			tmp;
 
+	tmp = 0;
 	i = 0;
 	result = 0;
 	va_start(args, format);
@@ -91,8 +95,14 @@ int			ft_printf(const char *restrict format, ...)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			result += compute_arg(format[i + 1], args);
-			i++;
+			tmp = compute_arg(format[i], format[i + 1], args);
+			if (tmp >= 0)
+			{
+				result += tmp;
+				i++;
+			}
+			else if (tmp == -1)
+				result++;
 		}
 		else
 			result += write(1, &format[i], 1);

@@ -22,10 +22,10 @@ size_t	ft_strlen(const char *s);
 void	ft_bzero(void *s, size_t n);
 int		ft_putchar(int c);
 int		ft_printi(int nb, int base);
-int		ft_printu(unsigned int nb, int base);
+int		ft_printu(unsigned int nb, int base, int cap);
 int		ft_printp(void *ptr);
 int		ft_printlu(unsigned long int nb, int base);
 int		ft_printc(int c);
 int		ft_prints(char *str);
-int		ft_printf(const char *restrict format, ...);
+int		ft_printf(const char *format, ...);
 #endif
