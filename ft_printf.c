@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:03:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 16:27:10 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:12:55 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int		compute_arg(char target, va_list args)
 		return (ft_printi(va_arg(args, int), 10));
 	else if (target == 'x' || target == 'X')
 		return (ft_printi(va_arg(args, int), 16));
+	else if (target == 'p')
+		return (ft_printp(va_arg(args, void*)));
 	return (write(1, &target, 1));
 }
 

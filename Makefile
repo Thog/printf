@@ -6,7 +6,7 @@
 #    By: tguillem <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/07/21 12:17:37 by tguillem          #+#    #+#              #
-#    Updated: 2016/01/04 16:41:21 by tguillem         ###   ########.fr        #
+#    Updated: 2016/01/04 17:17:29 by tguillem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ CFLAGS = -Wextra -Wall -Werror -I./
 CC = gcc
 
 NAME = libftprintf.a
-SRC = ft_bzero.c ft_strdup.c ft_strnew.c ft_putchar.c ft_printi.c ft_printf.c
+SRC = ft_bzero.c ft_strdup.c ft_strnew.c ft_putchar.c ft_printi.c ft_printf.c \
+	  ft_printlu.c ft_printp.c
 
 OBJ = $(SRC:.c=.o)
 REMOVE = $(OBJ)
