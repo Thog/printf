@@ -27,5 +27,6 @@ int		ft_printp(void *ptr);
 int		ft_printlu(unsigned long int nb, int base);
 int		ft_printc(int c);
 int		ft_prints(char *str);
-int		ft_printf(const char *restrict format, ...);
+int		ft_iscntrl(int c);
+int		ft_printf(const char *format, ...);
 #endif

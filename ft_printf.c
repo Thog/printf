@@ -75,10 +75,12 @@ int			compute_arg(char target, va_list args)
 		return (ft_printu(va_arg(args, unsigned int), 16));
 	else if (target == 'p')
 		return (ft_printp(va_arg(args, void*)));
-	return (write(1, &target, 1));
+	else if (target == '%' || ft_iscntrl(target))
+		return (write(1, &target, 1));
+	return (0);
 }
 
-int			ft_printf(const char *restrict format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		args;
 	int			i;

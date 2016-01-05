@@ -15,7 +15,7 @@ CC = gcc
 
 NAME = libftprintf.a
 SRC = ft_bzero.c ft_strdup.c ft_strnew.c ft_putchar.c ft_printi.c ft_printf.c \
-	  ft_printlu.c ft_printp.c ft_printu.c
+	  ft_printlu.c ft_printp.c ft_printu.c ft_iscntrl.c
 
 OBJ = $(SRC:.c=.o)
 REMOVE = $(OBJ)
