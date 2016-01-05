@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s);
 void	ft_bzero(void *s, size_t n);
 int		ft_putchar(int c);
 int		ft_printi(int nb, int base);
-int		ft_printu(unsigned int nb, int base);
+int		ft_printu(unsigned int nb, int base, char c);
 int		ft_printp(void *ptr);
 int		ft_printlu(unsigned long int nb, int base);
 int		ft_printc(int c);

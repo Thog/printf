@@ -25,7 +25,7 @@ static int		countdigit(unsigned int n, int base)
 	return (result);
 }
 
-static char		*ft_utoa_base(unsigned int n, int base)
+static char		*ft_utoa_base(unsigned int n, int base, char c)
 {
 	char	*result;
 	int		digit;
@@ -40,18 +40,18 @@ static char		*ft_utoa_base(unsigned int n, int base)
 	while (n)
 	{
 		*--result = ((n % base));
-		*result += (*result >= 10 && base >= 16) ? 'a' - 10 : '0';
+		*result += (*result >= 10 && base >= 16) ? c - 10 : '0';
 		n /= base;
 	}
 	return (result);
 }
 
-int				ft_printu(unsigned int nb, int base)
+int				ft_printu(unsigned int nb, int base, char c)
 {
 	char	*tmp;
 	int		result;
 
-	if (!(tmp = ft_utoa_base(nb, base)))
+	if (!(tmp = ft_utoa_base(nb, base, c)))
 		return (0);
 	result = ft_prints(tmp);
 	free(tmp);

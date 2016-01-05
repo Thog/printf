@@ -70,9 +70,10 @@ int			compute_arg(char target, va_list args)
 	else if (target == 'd' || target == 'D' || target == 'i')
 		return (ft_printi(va_arg(args, int), 10));
 	else if (target == 'u' || target == 'U')
-		return (ft_printu(va_arg(args, unsigned int), 10));
+		return (ft_printu(va_arg(args, unsigned int), 10, 0));
 	else if (target == 'x' || target == 'X')
-		return (ft_printu(va_arg(args, unsigned int), 16));
+		return (ft_printu(va_arg(args, unsigned int), 16,
+					target == 'X' ? 'A' : 'a'));
 	else if (target == 'p')
 		return (ft_printp(va_arg(args, void*)));
 	else if (target == '%' || ft_iscntrl(target))
