@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:03:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:46:53 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/06 09:15:45 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int			ft_prints(char *str)
 	size = ft_strlen(str);
 	if (size)
 		return (write(1, str, size));
-	return (0);
+	return (write(1, "(null)", 6));
 }
 
 int			compute_arg(char target, va_list args)
@@ -76,9 +76,7 @@ int			compute_arg(char target, va_list args)
 					target == 'X' ? 'A' : 'a'));
 	else if (target == 'p')
 		return (ft_printp(va_arg(args, void*)));
-	else if (target == '%' || ft_iscntrl(target))
-		return (write(1, &target, 1));
-	return (0);
+	return (write(1, &target, 1));
 }
 
 int			ft_printf(const char *format, ...)
