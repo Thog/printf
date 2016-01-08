@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:03:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/06 09:15:45 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/08 08:42:04 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ int			ft_prints(char *str)
 	size = ft_strlen(str);
 	if (size)
 		return (write(1, str, size));
-	return (write(1, "(null)", 6));
+	else if (!str)
+		return (write(1, "(null)", 6));
+	return (0);
 }
 
 int			compute_arg(char target, va_list args)
@@ -67,15 +69,19 @@ int			compute_arg(char target, va_list args)
 		return (ft_prints(va_arg(args, char*)));
 	else if (target == 'c' || target == 'C')
 		return (ft_printc(va_arg(args, int)));
-	else if (target == 'd' || target == 'D' || target == 'i')
+	else if (target == 'd' || target == 'i')
 		return (ft_printi(va_arg(args, int), 10));
-	else if (target == 'u' || target == 'U')
+	else if (target == 'u')
 		return (ft_printu(va_arg(args, unsigned int), 10, 0));
+	else if (target == 'U')
+		return (ft_printlu(va_arg(args, unsigned long), 10));
 	else if (target == 'x' || target == 'X')
 		return (ft_printu(va_arg(args, unsigned int), 16,
 					target == 'X' ? 'A' : 'a'));
 	else if (target == 'p')
 		return (ft_printp(va_arg(args, void*)));
+	else if (target == 'D')
+		return (ft_printlu(va_arg(args, unsigned long int), 10));
 	return (write(1, &target, 1));
 }
 
