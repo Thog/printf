@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:03:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/08 10:10:12 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/11 09:50:24 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,10 @@ int			ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%')
 		{
+			if (!format[i + 1])
+				return (result);
 			result += compute_arg(format[i + 1], args);
 			i++;
 		}
