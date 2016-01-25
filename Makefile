@@ -15,17 +15,19 @@ CC = gcc
 
 NAME = libftprintf.a
 LIB = libft
-SRC = ft_printchar.c ft_printi.c ft_printf.c \
-	ft_printlu.c ft_printp.c ft_printu.c
+DEP = ft_strnew.c ft_bzero.c ft_strdup.c
+SRC = ft_printchar.c ft_printi.c ft_printf.c ft_printlu.c ft_printp.c \
+	  ft_printu.c
 SRCDIR = src
 OUTDIR = out
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
+DEPOBJ = $(addprefix $(LIB)/, $(DEP:.c=.o)) 
 OBJ = $(addprefix $(OUTDIR)/, $(SRC:.c=.o))
 all: $(NAME)
 
 $(NAME): mkOut $(OBJ)
 	@(cd $(LIB) && $(MAKE))
-	@ar rc $(NAME) $(OBJ)
+	@ar rc $(NAME) $(OBJ) $(DEPOBJ)
 	@ranlib $(NAME)
 $(OUTDIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) -o $@ -c $? $(CFLAGS) -I./libft -L./libft
