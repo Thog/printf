@@ -12,15 +12,12 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+# include "libft.h"
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
 
-char	*ft_strdup(const char *s);
-char	*ft_strnew(size_t size);
-size_t	ft_strlen(const char *s);
-void	ft_bzero(void *s, size_t n);
-int		ft_putchar(int c);
+int		ft_printchar(int c);
 int		ft_printi(int nb, int base);
 int		ft_printu(unsigned int nb, int base, char c);
 int		ft_printp(void *ptr);

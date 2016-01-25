@@ -32,21 +32,21 @@ int			ft_printc(int cp)
 
 	result = 0;
 	if (cp < 128)
-		result = ft_putchar(cp);
+		result = ft_printchar(cp);
 	else if (cp < 2048)
-		result += ft_putchar(192 | (cp >> 6)) + ft_putchar(128 | (cp & 63));
+		result += ft_printchar(192 | (cp >> 6)) + ft_printchar(128 | (cp & 63));
 	else if (cp < 65536)
 	{
-		result += ft_putchar(224 | (cp >> 12));
-		result += ft_putchar(128 | ((cp >> 6) & 63));
-		result += ft_putchar(128 | (cp & 63));
+		result += ft_printchar(224 | (cp >> 12));
+		result += ft_printchar(128 | ((cp >> 6) & 63));
+		result += ft_printchar(128 | (cp & 63));
 	}
 	else if (cp < 1114112)
 	{
-		result += ft_putchar(240 | (cp >> 18));
-		result += ft_putchar(128 | ((cp >> 12) & 63));
-		result += ft_putchar(128 | ((cp >> 6) & 63));
-		result += ft_putchar(128 | (cp & 63));
+		result += ft_printchar(240 | (cp >> 18));
+		result += ft_printchar(128 | ((cp >> 12) & 63));
+		result += ft_printchar(128 | ((cp >> 6) & 63));
+		result += ft_printchar(128 | (cp & 63));
 	}
 	return (result);
 }

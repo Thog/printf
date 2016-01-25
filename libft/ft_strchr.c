@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 15:51:10 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 15:51:50 by tguillem         ###   ########.fr       */
+/*   Created: 2015/11/24 08:53:56 by tguillem          #+#    #+#             */
+/*   Updated: 2015/12/04 11:14:18 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*result;
-
-	result = (char *)malloc(size + 1);
-	if (result == NULL)
+	while (*s != c)
 	{
-		return (result);
+		if (!*s)
+			return (NULL);
+		s++;
 	}
-	ft_bzero(result, size + 1);
-	return (result);
+	return ((char*)s);
 }

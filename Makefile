@@ -10,31 +10,37 @@
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wextra -Wall -Werror -I./
+CFLAGS = -g -Wall -Wextra -Werror -I./includes
 CC = gcc
 
 NAME = libftprintf.a
-SRC = ft_bzero.c ft_strdup.c ft_strnew.c ft_putchar.c ft_printi.c ft_printf.c \
-	  ft_printlu.c ft_printp.c ft_printu.c ft_iscntrl.c
-
-OBJ = $(SRC:.c=.o)
-REMOVE = $(OBJ)
-
+LIB = libft
+SRC = ft_printchar.c ft_printi.c ft_printf.c \
+	ft_printlu.c ft_printp.c ft_printu.c
+SRCDIR = src
+OUTDIR = out
+SRCS = $(addprefix $(SRCDIR)/, $(SRC))
+OBJ = $(addprefix $(OUTDIR)/, $(SRC:.c=.o))
 all: $(NAME)
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -o $@ -c $<
-	@echo Building $<...
-
-$(NAME): $(OBJ)
+$(NAME): mkOut $(OBJ)
+	@(cd $(LIB) && $(MAKE))
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+$(OUTDIR)/%.o: $(SRCDIR)/%.c
+	@$(CC) -o $@ -c $? $(CFLAGS) -I./libft -L./libft
+
+mkOut:
+	@mkdir -p $(OUTDIR)
 
 clean:
-	@/bin/rm -f $(REMOVE)
+	@(cd $(LIB) && $(MAKE) $@)
+	@rm -f $(OBJ)
+	@rm -rf $(OUTDIR)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@(cd $(LIB) && $(MAKE) $@)
+	@rm -f $(NAME)
 
 .PHONY: clean fclean re
 

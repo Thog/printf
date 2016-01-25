@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 15:52:44 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 15:53:00 by tguillem         ###   ########.fr       */
+/*   Created: 2015/11/23 12:46:01 by tguillem          #+#    #+#             */
+/*   Updated: 2015/11/23 17:50:35 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putstr(char const *s)
 {
-	unsigned char *ptr;
-
-	ptr = (unsigned char *)s;
-	while (n--)
-		*ptr++ = 0;
+	ft_putstr_fd(s, 1);
 }

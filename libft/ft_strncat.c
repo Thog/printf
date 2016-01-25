@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 14:58:08 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 14:58:59 by tguillem         ###   ########.fr       */
+/*   Created: 2015/11/23 12:47:37 by tguillem          #+#    #+#             */
+/*   Updated: 2015/11/23 13:17:33 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	return (write(1, &c, 1));
+	char	*ret;
+
+	ret = s1;
+	while (*s1)
+		s1++;
+	while (n--)
+		if (!(*s1++ = *s2++))
+			return (ret);
+	*s1 = 0;
+	return (ret);
 }

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 15:48:41 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 15:49:04 by tguillem         ###   ########.fr       */
+/*   Created: 2015/11/23 12:49:36 by tguillem          #+#    #+#             */
+/*   Updated: 2015/11/23 12:49:38 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_tolower(int c)
 {
-	size_t		i;
-	char		*copy;
-
-	copy = ft_strnew(ft_strlen(s));
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = s[i];
-	return (copy);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
