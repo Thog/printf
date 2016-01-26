@@ -1,12 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage_number.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/26 15:49:23 by tguillem          #+#    #+#             */
+/*   Updated: 2016/01/26 16:03:41 by tguillem         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-ssize_t	ft_printf_manage_long(char **format, va_list *args, t_data *data)
+ssize_t				ft_printf_manage_long(char **format, va_list *args,
+		t_data *data)
 {
 	data->length = 2;
 	return (ft_printf_get_manager(ft_tolower(**format))(format, args, data));
 }
 
-ssize_t				ft_printf_manage_int(char **format, va_list *args, t_data *data)
+ssize_t				ft_printf_manage_int(char **format, va_list *args,
+		t_data *data)
 {
 	intmax_t				nbr;
 	char					*prefix;

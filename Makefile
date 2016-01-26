@@ -6,7 +6,7 @@
 #    By: tguillem <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/07/21 12:17:37 by tguillem          #+#    #+#              #
-#    Updated: 2016/01/04 17:40:29 by tguillem         ###   ########.fr        #
+#    Updated: 2016/01/26 15:54:21 by tguillem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,12 @@ DEP = ft_memalloc.c ft_bzero.c ft_strlen.c ft_min.c ft_max.c \
 	  ft_putstr.c ft_putwstr.c ft_wstrlen.c ft_putnbrbase.c \
 	  ft_tolower.c ft_putchar_fd.c ft_putstr_fd.c
 SRC = ft_printf.c internal_printf.c utils.c parser.c manager_base.c \
-	  manage_str.c manage_wstr.c manage_number.c ft_printu.c
+	  manage_str.c manage_wstr.c manage_number.c ft_printu.c ft_nbrlen.c
+
+
 SRCDIR = src
 OUTDIR = out
+
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 DEPOBJ = $(addprefix $(LIB)/, $(DEP:.c=.o)) 
 OBJ = $(addprefix $(OUTDIR)/, $(SRC:.c=.o))
@@ -33,7 +36,7 @@ $(NAME): mkOut $(OBJ)
 	@ar rc $(NAME) $(OBJ) $(DEPOBJ)
 	@ranlib $(NAME)
 $(OUTDIR)/%.o: $(SRCDIR)/%.c
-	@$(CC) -o $@ -c $? $(CFLAGS) -I./libft -L./libft
+	@$(CC) -o $@ -c $? $(CFLAGS) -I./libft
 
 mkOut:
 	@mkdir -p $(OUTDIR)

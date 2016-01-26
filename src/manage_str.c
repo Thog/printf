@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage_str.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/26 16:01:43 by tguillem          #+#    #+#             */
+/*   Updated: 2016/01/26 16:02:54 by tguillem         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 ssize_t	ft_printf_manage_wchar(char **format, va_list *args, t_data *data)
@@ -33,7 +45,7 @@ ssize_t	ft_printf_manage_char(char **format, va_list *args, t_data *data)
 	else
 	{
 		if (data->got_width && !data->right_pad)
-			ft_printf_width_pad(1, data->width, data->zero_pad? '0' : ' ');
+			ft_printf_width_pad(1, data->width, data->zero_pad ? '0' : ' ');
 		ft_putchar(va_arg(*args, int));
 		if (data->got_width && data->right_pad)
 			ft_printf_width_pad(1, data->width, ' ');
@@ -53,15 +65,15 @@ ssize_t	ft_printf_manage_str(char **format, va_list *args, t_data *data)
 		str = va_arg(*args, char*);
 		if (str == NULL)
 			str = "(null)";
-		strlen = data->got_accuracy ? (size_t) (ft_min(ft_strlen(str), data->accuracy)) : ft_strlen(str);
+		strlen = data->got_accuracy ? (size_t)(ft_min(ft_strlen(str),
+					data->accuracy)) : ft_strlen(str);
 		if (data->got_width && !data->right_pad)
 			ft_printf_width_pad(strlen, data->width, data->zero_pad ?
 					'0' : ' ');
 		write(1, str, strlen);
 		if (data->got_width && data->right_pad)
 			ft_printf_width_pad(strlen, data->width, ' ');
-		return (data->got_width ? (size_t)(ft_max(strlen, data->width)) : strlen);
+		return (data->got_width ? (size_t)(ft_max(strlen, data->width)) :
+				strlen);
 	}
 }
-
-

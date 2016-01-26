@@ -1,23 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/26 15:50:36 by tguillem          #+#    #+#             */
+/*   Updated: 2016/01/26 15:56:43 by tguillem         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-unsigned int	ft_printf_nbrlen(uintmax_t nbr, char *base)
-{
-	size_t			base_nbr;
-	unsigned int	i;
-
-	base_nbr = ft_strlen(base);
-	i = 0;
-	if (nbr == 0)
-		return (1);
-	while (nbr != 0)
-	{
-		nbr /= base_nbr;
-		i++;
-	}
-	return (i);
-}
-
-unsigned int		ft_printf_maxstrlen(uintmax_t nbr, char *base, char *p, t_data *data)
+unsigned int		ft_printf_maxstrlen(uintmax_t nbr, char *base, char *p,
+		t_data *data)
 {
 	unsigned int	len;
 	unsigned int	result;
@@ -34,7 +30,7 @@ unsigned int		ft_printf_maxstrlen(uintmax_t nbr, char *base, char *p, t_data *da
 	return (result);
 }
 
-void	ft_printf_width_pad(int nbrstrlen, int width, char padwith)
+void				ft_printf_width_pad(int nbrstrlen, int width, char padwith)
 {
 	while (nbrstrlen < width)
 	{
@@ -43,8 +39,8 @@ void	ft_printf_width_pad(int nbrstrlen, int width, char padwith)
 	}
 }
 
-
-uintmax_t	ft_printf_get_unsigned_from_length(va_list *datas, t_data *data)
+uintmax_t			ft_printf_get_unsigned_from_length(va_list *datas,
+		t_data *data)
 {
 	uintmax_t	nbr;
 
@@ -66,7 +62,8 @@ uintmax_t	ft_printf_get_unsigned_from_length(va_list *datas, t_data *data)
 	return (nbr);
 }
 
-intmax_t	ft_printf_get_signed_from_length(va_list *args, t_data *data)
+intmax_t			ft_printf_get_signed_from_length(va_list *args,
+		t_data *data)
 {
 	intmax_t	nbr;
 
@@ -88,7 +85,8 @@ intmax_t	ft_printf_get_signed_from_length(va_list *args, t_data *data)
 	return (nbr);
 }
 
-ssize_t	ft_printf_nbrforceprefix(uintmax_t nbr, char *base, t_data *data, char *prefix)
+ssize_t				ft_printf_nbrforceprefix(uintmax_t nbr, char *base,
+		t_data *data, char *prefix)
 {
 	unsigned	len;
 	size_t		cut;

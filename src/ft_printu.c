@@ -6,13 +6,14 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 17:41:15 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/26 15:58:25 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putnbrbase_inter(uintmax_t nbr, char *base, t_data *data, unsigned len)
+static void	ft_putnbrbase_inter(uintmax_t nbr, char *base, t_data *data,
+		unsigned int len)
 {
 	if (data->got_accuracy)
 		ft_printf_width_pad(len, data->accuracy, base[0]);
@@ -47,5 +48,6 @@ ssize_t		ft_printfu(uintmax_t nbr, t_data *data, char *base, char *prefix)
 	ft_putnbrbase_inter(nbr, base, data, len);
 	if (data->got_width && data->right_pad)
 		ft_printf_width_pad(strlen, data->width, ' ');
-	return (data->got_width ? (unsigned int)(ft_max(strlen, data->width)) : strlen);
+	return (data->got_width ? (unsigned int)(ft_max(strlen, data->width)) :
+			strlen);
 }

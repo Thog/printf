@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage_wstr.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/26 15:59:17 by tguillem          #+#    #+#             */
+/*   Updated: 2016/01/26 15:59:47 by tguillem         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnwstr(const wchar_t *str, size_t len)
+void			ft_putnwstr(const wchar_t *str, size_t len)
 {
 	size_t	i;
 
@@ -37,7 +48,8 @@ static size_t	calc_wstrlen(wchar_t *str, int precision, size_t i)
 		return (i);
 }
 
-ssize_t			ft_printf_manage_wstr(char **format, va_list *args, t_data *data)
+ssize_t			ft_printf_manage_wstr(char **format, va_list *args,
+		t_data *data)
 {
 	wchar_t	*str;
 	size_t	strlen;
