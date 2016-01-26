@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 14:58:08 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/04 14:58:59 by tguillem         ###   ########.fr       */
+/*   Created: 2016/01/26 04:35:04 by tguillem          #+#    #+#             */
+/*   Updated: 2016/01/26 04:35:04 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int		ft_printchar(int c)
+int		ft_min(int x, int y)
 {
-	return (write(1, &c, 1));
+	return (x < y ? x : y);
 }

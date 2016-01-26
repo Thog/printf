@@ -14,8 +14,10 @@
 # define LIBFT_H
 # define MIN -2147483648
 # define MAX 2147483647
+# define ABS(x) ((x) < 0 ? (-(x)) : (x))
+# include <wchar.h>
 # include <string.h>
-
+# include <inttypes.h>
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -100,4 +102,12 @@ int					ft_isxdigit(int c);
 int					ft_iscntrl(int c);
 char				*ft_strtrimch(const char *s, char c);
 char				*ft_strtrimcmp(const char *s, int (*f)(int c));
+
+int					ft_max(int x, int y);
+int					ft_min(int x, int y);
+void				ft_putnbrbase(uintmax_t nbr, char *base);
+size_t				ft_wstrlen(wchar_t *str);
+void				ft_putwchar(wchar_t chr);
+void				ft_putwstr(wchar_t *strr);
+
 #endif

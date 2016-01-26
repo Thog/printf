@@ -15,9 +15,12 @@ CC = gcc
 
 NAME = libftprintf.a
 LIB = libft
-DEP = ft_strnew.c ft_bzero.c ft_strdup.c
-SRC = ft_printchar.c ft_printi.c ft_printf.c ft_printlu.c ft_printp.c \
-	  ft_printu.c
+DEP = ft_memalloc.c ft_bzero.c ft_strlen.c ft_min.c ft_max.c \
+	  ft_isdigit.c ft_strchr.c ft_putchar.c ft_putwchar.c \
+	  ft_putstr.c ft_putwstr.c ft_wstrlen.c ft_putnbrbase.c \
+	  ft_tolower.c ft_putchar_fd.c ft_putstr_fd.c
+SRC = ft_printf.c internal_printf.c utils.c parser.c manager_base.c \
+	  manage_str.c manage_wstr.c manage_number.c ft_printu.c
 SRCDIR = src
 OUTDIR = out
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

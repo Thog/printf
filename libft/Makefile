@@ -26,8 +26,8 @@ SRC = ft_memset.c ft_bzero.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	  ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_itoa.c \
 	  ft_strsplit.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 	  ft_lstiter.c ft_lstsize.c ft_lstmap.c ft_iswhitespace.c ft_isblank.c \
-	  ft_strtrimch.c ft_strtrimcmp.c ft_islower.c ft_isupper.c
-
+	  ft_strtrimch.c ft_strtrimcmp.c ft_islower.c ft_isupper.c ft_max.c \
+	  ft_putnbrbase.c ft_wstrlen.c ft_putwchar.c ft_putwstr.c ft_min.c
 OBJ = $(SRC:.c=.o)
 REMOVE = $(OBJ)
 

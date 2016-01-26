@@ -12,48 +12,40 @@
 
 #include "ft_printf.h"
 
-static int		countdigit(unsigned int n, int base)
+static void	ft_putnbrbase_inter(uintmax_t nbr, char *base, t_data *data, unsigned len)
 {
-	int		result;
-
-	result = 0;
-	while (n)
-	{
-		result++;
-		n /= base;
-	}
-	return (result);
+	if (data->got_accuracy)
+		ft_printf_width_pad(len, data->accuracy, base[0]);
+	if (nbr == 0 && data->got_accuracy && data->accuracy == 0)
+		return ;
+	else
+		ft_putnbrbase(nbr, base);
 }
 
-static char		*ft_utoa_base(unsigned int n, int base, char c)
+ssize_t		ft_printfu(uintmax_t nbr, t_data *data, char *base, char *prefix)
 {
-	char	*result;
-	int		digit;
+	unsigned int			len;
+	unsigned int			strlen;
 
-	if (!n)
-		return (ft_strdup("0"));
-	digit = countdigit(n, base);
-	result = ft_strnew(digit);
-	if (!result)
-		return (NULL);
-	result += digit;
-	while (n)
+	if (data->got_accuracy)
+		data->zero_pad = 0;
+	len = ft_printf_nbrlen(nbr, base);
+	if (data->got_width && !data->right_pad && data->zero_pad)
 	{
-		*--result = ((n % base));
-		*result += (*result >= 10 && base >= 16) ? c - 10 : '0';
-		n /= base;
+		if (data->got_accuracy)
+			data->accuracy = ft_max(data->width, data->accuracy);
+		else
+			data->accuracy = ft_max(data->width, len);
+		data->got_accuracy = 1;
+		data->got_width = 0;
 	}
-	return (result);
-}
-
-int				ft_printu(unsigned int nb, int base, char c)
-{
-	char	*tmp;
-	int		result;
-
-	if (!(tmp = ft_utoa_base(nb, base, c)))
-		return (0);
-	result = ft_prints(tmp);
-	free(tmp);
-	return (result);
+	strlen = ft_printf_maxstrlen(nbr, base, prefix, data);
+	if (data->got_width && !data->right_pad)
+		ft_printf_width_pad(strlen, data->width, ' ');
+	if (data->prefix && prefix != NULL && nbr != 0)
+		ft_putstr(prefix);
+	ft_putnbrbase_inter(nbr, base, data, len);
+	if (data->got_width && data->right_pad)
+		ft_printf_width_pad(strlen, data->width, ' ');
+	return (data->got_width ? (unsigned int)(ft_max(strlen, data->width)) : strlen);
 }
