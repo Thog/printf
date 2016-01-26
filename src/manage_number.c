@@ -47,3 +47,41 @@ ssize_t				ft_printf_manage_int(char **format, va_list *args,
 	else
 		return (ft_printfu(nbr, data, "0123456789", NULL));
 }
+
+ssize_t				ft_printf_manage_octal(char **format, va_list *args,
+		t_data *data)
+{
+	uintmax_t	nbr;
+
+	(void)format;
+	nbr = ft_printf_get_unsigned_from_length(args, data);
+	if (data->prefix && !nbr &&
+				data->got_accuracy && !data->accuracy)
+	{
+		if (data->got_width && !data->right_pad)
+			ft_printf_width_pad(1, data->width, data->zero_pad ? '0' : ' ');
+		ft_putstr("0");
+		if (data->got_width && data->right_pad)
+			ft_printf_width_pad(1, data->width, ' ');
+		return (data->got_width ? ft_max(data->width, 1) : 1);
+	}
+	else if (data->prefix && !nbr)
+	{
+		data->got_accuracy = 1;
+		data->accuracy = ft_max(data->accuracy,
+				ft_printf_nbrlen(nbr, "01234567") + 1);
+	}
+	return (ft_printfu(nbr, data, "01234567", NULL));
+}
+
+ssize_t				ft_printf_manage_hexa(char **format, va_list *args,
+		t_data *data)
+{
+	uintmax_t	nbr;
+
+	nbr = ft_printf_get_unsigned_from_length(args, data);
+	if (**format == 'X')
+		return (ft_printfu(nbr, data, "0123456789ABCDEF", "0X"));
+	else
+		return (ft_printfu(nbr, data, "0123456789abcdef", "0x"));
+}

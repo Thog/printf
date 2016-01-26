@@ -46,10 +46,16 @@ ssize_t				ft_printf_manage_str(char **format, va_list *args, t_data *data);
 ssize_t				ft_printf_manage_wstr(char **format, va_list *args, t_data *data);
 ssize_t				ft_printf_manage_long(char **format, va_list *args, t_data *data);
 ssize_t				ft_printf_manage_int(char **format, va_list *args, t_data *data);
+ssize_t				ft_printf_manage_octal(char **format, va_list *args, t_data *data);
+ssize_t				ft_printf_manage_hexa(char **format, va_list *args, t_data *data);
+ssize_t				ft_printf_manage_ptr(char **format, va_list *args, t_data *data);
+ssize_t				ft_printf_manage_percent(char **format, va_list *args, t_data *data);
+ssize_t				ft_printf_manage_null(char **format, va_list *args, t_data *data);
 ssize_t				ft_printf_nbrforceprefix(uintmax_t nbr, char *base, t_data *data, char *prefix);
 unsigned int		ft_printf_maxstrlen(uintmax_t nbr, char *base, char *p, t_data *data);
 unsigned int		ft_printf_nbrlen(uintmax_t nbr, char *base);
 int					internal_printf(const char *format, va_list *args, int length);
 void				ft_printf_width_pad(int nbrstrlen, int width, char padwith);
+uintmax_t			ft_printf_get_unsigned_from_length(va_list *datas, t_data *data);
 int					ft_printf(const char *format, ...);
 #endif

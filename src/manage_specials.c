@@ -1,0 +1,36 @@
+#include "ft_printf.h"
+
+ssize_t	ft_printf_manage_ptr(char **format, va_list *args, t_data *data)
+{
+	uintmax_t	nbr;
+
+	(void)format;
+	data->length = 4;
+	if (data->got_accuracy)
+		data->zero_pad = 0;
+	nbr = ft_printf_get_unsigned_from_length(args, data);
+	return (ft_printf_nbrforceprefix(nbr, "0123456789abcdef", data, "0x"));
+}
+
+ssize_t	ft_printf_manage_percent(char **format, va_list *args, t_data *data)
+{
+	(void)format;
+	(void)args;
+	if (data->got_width && !data->right_pad)
+		ft_printf_width_pad(1, data->width, data->zero_pad ? '0' : ' ');
+	ft_putchar('%');
+	if (data->got_width && data->right_pad)
+		ft_printf_width_pad(1, data->width, ' ');
+	return (data->got_width ? ft_max(data->width, 1) : 1);
+}
+
+ssize_t	ft_printf_manage_null(char **format, va_list *args, t_data *data)
+{
+	(void)args;
+	if (data->got_width && !data->right_pad)
+		ft_printf_width_pad(1, data->width, data->zero_pad ? '0' : ' ');
+	ft_putchar(**format);
+	if (data->got_width && data->right_pad)
+		ft_printf_width_pad(1, data->width, ' ');
+	return (data->got_width ? ft_max(data->width, 1) : 1);
+}

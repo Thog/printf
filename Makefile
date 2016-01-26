@@ -20,7 +20,8 @@ DEP = ft_memalloc.c ft_bzero.c ft_strlen.c ft_min.c ft_max.c \
 	  ft_putstr.c ft_putwstr.c ft_wstrlen.c ft_putnbrbase.c \
 	  ft_tolower.c ft_putchar_fd.c ft_putstr_fd.c
 SRC = ft_printf.c internal_printf.c utils.c parser.c manager_base.c \
-	  manage_str.c manage_wstr.c manage_number.c ft_printu.c ft_nbrlen.c
+	  manage_str.c manage_wstr.c manage_number.c manage_specials.c \
+	  ft_printu.c ft_nbrlen.c
 
 
 SRCDIR = src

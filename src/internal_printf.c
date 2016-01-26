@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int		manage_args(char **format, va_list *args, t_data *data)
 {
@@ -28,7 +27,7 @@ int		manage_args(char **format, va_list *args, t_data *data)
 	if (!**format)
 		return (0);
 	if (!(f = ft_printf_get_manager(**format)))
-		f = NULL;
+		f = &ft_printf_manage_null;
 	ret = f(format, args, data);
 	(*format)++;
 	return (ret);
