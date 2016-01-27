@@ -22,7 +22,7 @@ static void		init_managers(t_manager *manager)
 	manager['i'] = &ft_printf_manage_int;
 	manager['o'] = &ft_printf_manage_octal;
 	manager['O'] = &ft_printf_manage_long;
-	manager['u'] = &ft_printf_manage_long;
+	manager['u'] = &ft_printf_manage_long_bis;
 	manager['U'] = &ft_printf_manage_long;
 	manager['x'] = &ft_printf_manage_hexa;
 	manager['X'] = &ft_printf_manage_hexa;

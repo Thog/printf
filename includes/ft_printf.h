@@ -53,6 +53,8 @@ ssize_t				ft_printf_manage_wstr(char **format, va_list *args,
 		t_data *data);
 ssize_t				ft_printf_manage_long(char **format, va_list *args,
 		t_data *data);
+ssize_t				ft_printf_manage_long_bis(char **format, va_list *args,
+		t_data *data);
 ssize_t				ft_printf_manage_int(char **format, va_list *args,
 		t_data *data);
 ssize_t				ft_printf_manage_octal(char **format, va_list *args,

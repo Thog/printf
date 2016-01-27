@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+
+ssize_t				ft_printf_manage_long_bis(char **format, va_list *args,
+		t_data *data)
+{
+	data->length = 2;
+	return (ft_printf_manage_int(format, args, data));
+}
+
 ssize_t				ft_printf_manage_long(char **format, va_list *args,
 		t_data *data)
 {
