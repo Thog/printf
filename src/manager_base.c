@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 16:00:07 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/26 16:00:09 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/27 12:23:20 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void		init_managers(t_manager *manager)
 	manager['c'] = &ft_printf_manage_char;
 	manager['C'] = &ft_printf_manage_wchar;
 }
-
 
 t_manager		ft_printf_get_manager(char c)
 {
