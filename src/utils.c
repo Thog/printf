@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:50:36 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/26 15:56:43 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/27 12:58:46 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ unsigned int		ft_printf_maxstrlen(uintmax_t nbr, char *base, char *p,
 		result = ft_max(len, data->accuracy);
 	else
 		result = len;
-	if (data->prefix && !p && !nbr)
+	if (data->prefix && p && nbr)
 		result += ft_strlen(p);
 	return (result);
 }

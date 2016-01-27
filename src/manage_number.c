@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:49:23 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/26 16:03:41 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/27 13:01:30 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ ssize_t				ft_printf_manage_octal(char **format, va_list *args,
 
 	(void)format;
 	nbr = ft_printf_get_unsigned_from_length(args, data);
-	if (data->prefix && !nbr &&
+	if (data->prefix && nbr &&
 				data->got_accuracy && !data->accuracy)
 	{
 		if (data->got_width && !data->right_pad)
@@ -65,7 +65,7 @@ ssize_t				ft_printf_manage_octal(char **format, va_list *args,
 			ft_printf_width_pad(1, data->width, ' ');
 		return (data->got_width ? ft_max(data->width, 1) : 1);
 	}
-	else if (data->prefix && !nbr)
+	else if (data->prefix && nbr)
 	{
 		data->got_accuracy = 1;
 		data->accuracy = ft_max(data->accuracy,
