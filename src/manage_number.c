@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:49:23 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/27 15:22:01 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/29 10:51:05 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 ssize_t				ft_printf_manage_long_bis(char **format, va_list *args,
 		t_data *data)
 {
-	data->length = 2;
 	uintmax_t				nbr;
 
 	(void)format;
