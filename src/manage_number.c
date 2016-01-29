@@ -6,12 +6,11 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:49:23 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/29 10:51:05 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/01/29 13:44:12 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 ssize_t				ft_printf_manage_long_bis(char **format, va_list *args,
 		t_data *data)
@@ -91,10 +90,21 @@ ssize_t				ft_printf_manage_hexa(char **format, va_list *args,
 		t_data *data)
 {
 	uintmax_t	nbr;
+	char		*base;
+	char		*prefix;
 
 	nbr = ft_printf_get_unsigned_from_length(args, data);
 	if (**format == 'X')
-		return (ft_printfu(nbr, data, "0123456789ABCDEF", "0X"));
+	{
+		base = "0123456789ABCDEF";
+		prefix = "0X";
+	}
 	else
-		return (ft_printfu(nbr, data, "0123456789abcdef", "0x"));
+	{
+		base = "0123456789abcdef";
+		prefix = "0x";
+	}
+	if (data->prefix && nbr)
+		return (ft_printf_nbrforceprefix(nbr, base, data, prefix));
+	return (ft_printfu(nbr, data, base, prefix));
 }
