@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 12:22:36 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/27 12:22:37 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/04 15:51:29 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 ssize_t	ft_printf_manage_ptr(char **format, va_list *args, t_data *data)
 {
-	uintmax_t	nbr;
-
 	(void)format;
 	data->length = 4;
 	if (data->got_accuracy)
 		data->zero_pad = 0;
-	nbr = ft_printf_get_unsigned_from_length(args, data);
-	return (ft_printf_nbrforceprefix(nbr, "0123456789abcdef", data, "0x"));
+	return (ft_printf_nbrforceprefix(
+				ft_printf_get_unsigned_from_length(args, data),
+				"0123456789abcdef", data, "0x"));
 }
 
 ssize_t	ft_printf_manage_percent(char **format, va_list *args, t_data *data)

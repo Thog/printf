@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:59:17 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/26 15:59:47 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/04 15:55:28 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			ft_putnwstr(const wchar_t *str, size_t len)
 
 static size_t	calc_wstrlen(wchar_t *str, int precision, size_t i)
 {
-	if (*str == '\0' || precision == 0)
+	if (!*str || !precision)
 		return (i);
 	else if (*str <= 0x7F)
 		return (calc_wstrlen(str + 1, precision - 1, i + 1));
@@ -57,7 +57,7 @@ ssize_t			ft_printf_manage_wstr(char **format, va_list *args,
 	(void)format;
 	(void)data;
 	str = va_arg(*args, wchar_t*);
-	if (str == NULL)
+	if (!str)
 		str = L"(null)";
 	strlen = data->got_accuracy ? calc_wstrlen(str, data->accuracy, 0) :
 			ft_wstrlen(str);

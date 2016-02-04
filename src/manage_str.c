@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 16:01:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/27 13:09:47 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/04 15:54:39 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ssize_t	ft_printf_manage_wchar(char **format, va_list *args, t_data *data)
 
 	(void)format;
 	chr = (wchar_t)va_arg(*args, wint_t);
+	len = 0;
 	if (chr <= 0x7F)
 		len = 1;
 	else if (chr <= 0x7FF)
@@ -27,8 +28,6 @@ ssize_t	ft_printf_manage_wchar(char **format, va_list *args, t_data *data)
 		len = 3;
 	else if (chr <= 0x10FFFF)
 		len = 4;
-	else
-		len = 0;
 	if (data->got_width && !data->right_pad)
 		ft_printf_width_pad(len, data->width, data->zero_pad ? '0' : ' ');
 	ft_putwchar(chr);
@@ -63,7 +62,7 @@ ssize_t	ft_printf_manage_str(char **format, va_list *args, t_data *data)
 	else
 	{
 		str = va_arg(*args, char*);
-		if (str == NULL)
+		if (!str)
 			str = "(null)";
 		strlen = data->got_accuracy ? (size_t)(ft_min(ft_strlen(str),
 					data->accuracy)) : ft_strlen(str);

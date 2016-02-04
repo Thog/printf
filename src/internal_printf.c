@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:58:03 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/27 13:24:26 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/04 15:49:44 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,13 @@ int		internal_printf(const char *format, va_list *args, int length)
 
 	len = 0;
 	next_arg = ft_strchr(format, '%');
-	if (*format == '\0')
+	if (!*format)
 		return (length);
 	if (!next_arg)
 		return (length + write(1, format, ft_strlen(format)));
 	else if (next_arg > format)
-	{
 		return (internal_printf(next_arg, args, length + write(1, format,
 						next_arg - format)));
-	}
 	else
 	{
 		ft_bzero(&prop_data, sizeof(prop_data));
