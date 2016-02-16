@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 16:01:43 by tguillem          #+#    #+#             */
-/*   Updated: 2016/02/04 15:54:39 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/16 14:42:39 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ssize_t	ft_printf_manage_wchar(char **format, va_list *args, t_data *data)
 	ft_putwchar(chr);
 	if (data->got_width && data->right_pad)
 		ft_printf_width_pad(len, data->width, data->zero_pad ? '0' : ' ');
-	return (data->got_width ? (ssize_t)(ft_max(len, data->width)) : len);
+	return (data->got_width ? ft_max(len, data->width) : len);
 }
 
 ssize_t	ft_printf_manage_char(char **format, va_list *args, t_data *data)
@@ -72,7 +72,6 @@ ssize_t	ft_printf_manage_str(char **format, va_list *args, t_data *data)
 		write(1, str, strlen);
 		if (data->got_width && data->right_pad)
 			ft_printf_width_pad(strlen, data->width, ' ');
-		return (data->got_width ? (size_t)(ft_max(strlen, data->width)) :
-				strlen);
+		return (data->got_width ? ft_max(strlen, data->width) : strlen);
 	}
 }

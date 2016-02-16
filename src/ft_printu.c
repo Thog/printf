@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/01/29 13:23:17 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/16 14:43:18 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ ssize_t		ft_printfu(uintmax_t nbr, t_data *data, char *base, char *prefix)
 	strlen = ft_printf_maxstrlen(nbr, base, prefix, data);
 	if (data->got_width && !data->right_pad)
 		ft_printf_width_pad(strlen, data->width, ' ');
-	if (data->prefix && prefix != NULL && nbr != 0)
+	if (data->prefix && prefix && nbr)
 		ft_putstr(prefix);
 	ft_putnbrbase_inter(nbr, base, data, len);
 	if (data->got_width && data->right_pad)
 		ft_printf_width_pad(strlen, data->width, ' ');
-	return (data->got_width ? (unsigned int)(ft_max(strlen, data->width)) :
-			strlen);
+	return (data->got_width ? (ft_max(strlen, data->width)) : strlen);
 }
