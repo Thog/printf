@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 16:00:07 by tguillem          #+#    #+#             */
-/*   Updated: 2016/02/04 15:55:56 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/02/16 11:52:26 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_manager		ft_printf_get_manager(char c)
 
 	if (!managers)
 	{
-		managers = ft_memalloc(sizeof(*managers) * 256);
+		managers = (t_manager*)ft_memalloc(sizeof(t_manager) * 256);
 		if (managers)
 			init_managers(managers);
 	}
