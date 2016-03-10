@@ -6,11 +6,11 @@
 #    By: tguillem <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/07/21 12:17:37 by tguillem          #+#    #+#              #
-#    Updated: 2016/01/26 15:54:21 by tguillem         ###   ########.fr        #
+#    Updated: 2016/03/10 10:56:09 by tguillem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -g -Wall -Wextra -Werror -I./includes
+CFLAGS = -Wall -Wextra -Werror -I./includes
 CC = gcc
 
 NAME = libftprintf.a
