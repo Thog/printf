@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	char	*tmp;
 
 	i = 0;
-	tmp = (char *)malloc(sizeof(char) * n);
+	tmp = ft_strnew(n);
 	tmp = ft_strncpy(tmp, s1, n);
 	if (!ft_strlen(s2))
 		return ((char*)s1);

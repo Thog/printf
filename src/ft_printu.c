@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/02/16 14:43:18 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/03/10 12:17:30 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ ssize_t		ft_printfu(uintmax_t nbr, t_data *data, char *base, char *prefix)
 	len = ft_printf_nbrlen(nbr, base);
 	if (data->got_width && !data->right_pad && data->zero_pad)
 	{
-		if (data->got_accuracy)
-			data->accuracy = ft_max(data->width, data->accuracy);
-		else
-			data->accuracy = ft_max(data->width, len);
+		data->accuracy = ft_max(data->width, data->got_accuracy ?
+				data->accuracy : len);
 		data->got_accuracy = 1;
 		data->got_width = 0;
 	}

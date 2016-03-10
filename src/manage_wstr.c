@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:59:17 by tguillem          #+#    #+#             */
-/*   Updated: 2016/02/16 14:41:55 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/03/10 12:22:58 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ ssize_t			ft_printf_manage_wstr(char **format, va_list *args,
 	size_t	strlen;
 
 	(void)format;
-	(void)data;
 	str = va_arg(*args, wchar_t*);
 	if (!str)
 		str = L"(null)";

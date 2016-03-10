@@ -19,6 +19,7 @@
 # include <wchar.h>
 # include <string.h>
 # include <inttypes.h>
+# include "ft_time.h"
 
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
