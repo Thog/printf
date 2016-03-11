@@ -6,11 +6,11 @@
 #    By: tguillem <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/07/21 12:17:37 by tguillem          #+#    #+#              #
-#    Updated: 2016/02/16 11:54:51 by tguillem         ###   ########.fr        #
+#    Updated: 2016/03/11 10:35:11 by tguillem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wextra -Wall -Werror -I./
+CFLAGS = -O3 -Wextra -Wall -Werror -I./
 CC = gcc
 
 NAME = libft.a
@@ -28,7 +28,7 @@ SRC = ft_memset.c ft_bzero.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	  ft_lstiter.c ft_lstsize.c ft_lstmap.c ft_iswhitespace.c ft_isblank.c \
 	  ft_strtrimch.c ft_strtrimcmp.c ft_islower.c ft_isupper.c ft_max.c \
 	  ft_putnbrbase.c ft_wstrlen.c ft_putwchar.c ft_putwstr.c ft_min.c \
-	  ft_itoa_base.c get_next_line.c ft_time.c
+	  ft_itoa_base.c get_next_line.c ft_time.c ft_count_digit.c
 OBJ = $(SRC:.c=.o)
 REMOVE = $(OBJ)
 

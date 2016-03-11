@@ -6,7 +6,7 @@
 /*   By: tguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 12:49:44 by tguillem          #+#    #+#             */
-/*   Updated: 2016/02/16 11:33:17 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/03/10 16:35:30 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void				ft_putnbrbase(uintmax_t nbr, char *base);
 size_t				ft_wstrlen(wchar_t *str);
 void				ft_putwchar(wchar_t chr);
 void				ft_putwstr(wchar_t *strr);
+int					ft_count_digit(int value, int base);
 char				*ft_itoa_base(int value, int base);
 
 typedef struct		s_buff
@@ -116,5 +117,4 @@ typedef struct		s_buff
 }					t_buff;
 
 int					get_next_line(int const fd, char **line);
-
 #endif
