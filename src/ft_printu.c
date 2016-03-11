@@ -6,7 +6,7 @@
 /*   By: tguillem <tguillem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:56:50 by tguillem          #+#    #+#             */
-/*   Updated: 2016/03/10 12:17:30 by tguillem         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:27:14 by tguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ static void	ft_putnbrbase_inter(uintmax_t nbr, char *base, t_data *data,
 {
 	if (data->got_accuracy)
 		ft_printf_width_pad(len, data->accuracy, base[0]);
-	if (nbr == 0 && data->got_accuracy && data->accuracy == 0)
-		return ;
-	else
+	if (nbr != 0 || !data->got_accuracy || data->accuracy != 0)
 		ft_putnbrbase(nbr, base);
 }
 
